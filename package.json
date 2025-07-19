@@ -1,14 +1,19 @@
 {
   "name": "og-siparis-frontend",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "OG Sipariş Yönetim Sistemi - Frontend",
   "homepage": "https://ogsiparis.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:prod": "NODE_ENV=production vite build",
+    "build:prod": "NODE_ENV=production vite build --mode production",
+    "build:staging": "NODE_ENV=staging vite build --mode staging",
     "preview": "vite preview",
-    "serve": "vite preview --port 4173"
+    "serve": "vite preview --port 4173",
+    "deploy:hostinger": "npm run build:prod && echo 'Build completed for Hostinger deployment'",
+    "analyze": "vite build --mode production && npx vite-bundle-analyzer dist/stats.html",
+    "clean": "rm -rf dist node_modules/.cache",
+    "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
